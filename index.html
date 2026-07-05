@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Journal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">📔 Daily Journal</a>
+  <nav>
+    <a href="index.html" class="active">Write</a>
+    <a href="entries.html">Entries</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+<main class="wrap">
+  <div class="datebar">
+    <input type="date" id="date">
+    <span class="saved" id="saved"></span>
+  </div>
+  <input id="title" class="title-in" placeholder="Title your day…">
+  <textarea id="body" placeholder="What happened today? What's on your mind?"></textarea>
+  <div class="actions">
+    <span class="count" id="count">0 words</span>
+    <button class="btn" id="save">Save entry</button>
+  </div>
+</main>
+<footer class="foot">Daily Journal · private, stored only in your browser · SKRIZIdev</footer>
+<script src="js/journal.js"></script>
+</body>
+</html>
