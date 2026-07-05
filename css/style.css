@@ -31,3 +31,16 @@ textarea:focus{outline:none}
 .empty{color:var(--muted);text-align:center;padding:40px;font-family:sans-serif}
 .prose{color:var(--muted)} .prose h3{color:var(--ink);margin:16px 0 6px} .prose code{background:var(--panel);border:1px solid var(--line);padding:2px 6px;border-radius:5px;font-size:.9rem}
 .foot{text-align:center;color:var(--muted);padding:28px;font-size:.85rem;font-family:sans-serif;border-top:1px solid var(--line)}
+
+/* ---- enhancements: animations ---- */
+@keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.wrap>*{opacity:0;animation:fadeIn .6s ease both}
+.datebar{animation-delay:.05s}.title-in{animation-delay:.12s}textarea{animation-delay:.2s}
+.title-in{transition:border-color .2s}
+.btn{transition:transform .1s,filter .15s}.btn:active{transform:scale(.96)}
+.entry{opacity:0;animation:riseIn .5s ease both}
+.entry:nth-child(2){animation-delay:.06s}.entry:nth-child(3){animation-delay:.12s}.entry:nth-child(4){animation-delay:.18s}
+.entry{transition:transform .18s,box-shadow .18s,border-color .18s}
+.entry:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(90,70,30,.08);border-color:#d9c9a8}
+.entry .del{transition:color .15s}.entry .del:hover{color:#b45309}

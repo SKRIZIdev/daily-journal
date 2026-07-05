@@ -18,9 +18,12 @@ function render(q = '') {
       <h3>${escapeHtml(e.title)}</h3>
       <p>${escapeHtml(e.body).slice(0, 240)}${e.body.length > 240 ? '…' : ''}</p>
     </div>`).join('');
-  list.querySelectorAll('.del').forEach(b => b.onclick = () => {
-    if (!confirm('Delete this entry?')) return;
-    const e = load(); delete e[b.dataset.d]; localStorage.setItem(KEY, JSON.stringify(e)); render(document.getElementById('search').value);
+  list.querySelectorAll('.del').forEach(b => b.onclick = async () => {
+    const ok = await UI.confirm('Delete this entry for good?', { danger: true, ok: 'Delete' });
+    if (!ok) return;
+    const e = load(); delete e[b.dataset.d]; localStorage.setItem(KEY, JSON.stringify(e));
+    UI.toast('Entry deleted', 'info');
+    render(document.getElementById('search').value);
   });
 }
 function escapeHtml(s) { return s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }

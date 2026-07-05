@@ -30,7 +30,7 @@ $('date').value = today();
 $('date').addEventListener('change', () => open($('date').value));
 $('body').addEventListener('input', () => { updateCount(); $('saved').textContent = 'unsaved…'; });
 $('title').addEventListener('input', () => $('saved').textContent = 'unsaved…');
-$('save').addEventListener('click', save);
+$('save').addEventListener('click', () => { save(); if (window.UI) UI.toast('Entry saved', 'success'); });
 // autosave on blur
 $('body').addEventListener('blur', save);
 open(today());
